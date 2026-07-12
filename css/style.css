@@ -4,16 +4,15 @@
    ============================================================ */
 
 :root {
-  /* Colors — tweak these to rebrand the whole site.
-     Clean, neutral palette (no bright/neon colors). */
+  /* Plain black and blue palette */
   --color-bg: #ffffff;
-  --color-bg-alt: #f5f6f7;
+  --color-bg-alt: #f7f7f7;
   --color-surface: #ffffff;
-  --color-text: #1b1f24;
-  --color-text-muted: #5a6270;
-  --color-accent: #33404f;
-  --color-accent-2: #33404f;
-  --color-border: rgba(0, 0, 0, 0.1);
+  --color-text: #000000;
+  --color-text-muted: #333333;
+  --color-accent: #0033cc;
+  --color-accent-2: #0033cc;
+  --color-border: rgba(0, 0, 0, 0.2);
 
   /* Layout */
   --max-width: 1120px;
@@ -41,11 +40,10 @@ html {
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: "Times New Roman", Times, serif;
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
@@ -92,9 +90,9 @@ a {
 h1,
 h2,
 h3 {
-  line-height: 1.15;
+  line-height: 1.2;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 h1 {
@@ -119,10 +117,7 @@ p {
 }
 
 .gradient-text {
-  background: linear-gradient(120deg, var(--color-accent), var(--color-accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-accent);
 }
 
 /* ---------- Buttons ---------- */
@@ -193,9 +188,9 @@ p {
 }
 
 .nav__logo {
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.15rem;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -263,22 +258,7 @@ p {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(
-      circle at 20% 20%,
-      rgba(0, 0, 0, 0.05),
-      transparent 42%
-    ),
-    radial-gradient(circle at 80% 30%, rgba(0, 0, 0, 0.04), transparent 46%);
-  animation: floatBg 18s ease-in-out infinite alternate;
-}
-
-@keyframes floatBg {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  to {
-    transform: translate3d(0, -30px, 0) scale(1.08);
-  }
+  background: var(--color-bg-alt);
 }
 
 .hero__content {
@@ -306,30 +286,19 @@ p {
   transform: translateX(-50%);
   color: var(--color-text-muted);
   font-size: 0.8rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  animation: bob 2s ease-in-out infinite;
 }
 
 .scroll-cue::after {
   content: "";
   width: 1px;
   height: 34px;
-  background: linear-gradient(var(--color-text-muted), transparent);
-}
-
-@keyframes bob {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(8px);
-  }
+  background: var(--color-text-muted);
 }
 
 /* ---------- Grids & cards ---------- */
@@ -388,8 +357,8 @@ p {
   height: 120px;
   border-radius: 50%;
   margin: 0 auto 18px;
-  background: linear-gradient(120deg, var(--color-bg-alt), var(--color-surface));
-  border: 2px solid var(--color-border);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
   display: grid;
   place-items: center;
   color: var(--color-text-muted);
@@ -435,7 +404,7 @@ p {
 .media-placeholder {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius);
-  background: linear-gradient(120deg, var(--color-surface), var(--color-bg-alt));
+  background: var(--color-bg-alt);
   border: 1px dashed var(--color-border);
   display: grid;
   place-items: center;
@@ -693,5 +662,131 @@ body.is-leaving .page-transition {
   }
   .nav__toggle.open span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+/* ============================================================
+   Meet the Team — fixed, unscrollable showcase
+   ============================================================ */
+html.team-page,
+html.team-page body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.team-showcase {
+  height: calc(100vh - var(--nav-height));
+  margin-top: var(--nav-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.team-showcase__stage {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  flex: 1;
+  min-height: 0;
+}
+
+.team-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 12px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+  pointer-events: none;
+}
+
+.team-slide.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.team-slide__photo {
+  width: min(260px, 55vw);
+  aspect-ratio: 1;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  margin-bottom: 22px;
+  display: grid;
+  place-items: center;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  overflow: hidden;
+}
+
+.team-slide__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-slide__title {
+  color: var(--color-accent);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  margin-bottom: 16px;
+  max-width: 40ch;
+}
+
+.team-slide__desc {
+  color: var(--color-text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 56ch;
+  max-height: 30vh;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.team-showcase__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.team-showcase__btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.team-showcase__btn:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.team-showcase__counter {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  min-width: 4ch;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .team-showcase {
+    padding: 16px;
+  }
+
+  .team-slide__desc {
+    font-size: 1rem;
+    max-height: 24vh;
   }
 }
