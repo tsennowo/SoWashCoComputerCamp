@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Once you have a domain, update this line so Google can find your sitemap:
+# Sitemap: https://your-domain.com/sitemap.xml
