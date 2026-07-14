@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="team-page">
+<html lang="en" class="fixed-page team-page">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Meet the Team — [Your Camp Name]</title>
+    <title>About — SoWashCo Computer Camp</title>
     <meta
       name="description"
-      content="[Describe your camp's team of instructors and staff for Google search results.]"
+      content="[Describe your camp's team for Google search results.]"
     />
     <meta name="theme-color" content="#ffffff" />
 
-    <meta property="og:title" content="Meet the Team — [Your Camp Name]" />
-    <meta property="og:description" content="[Short description for social sharing.]" />
+    <meta property="og:title" content="About — SoWashCo Computer Camp" />
+    <meta property="og:description" content="" />
     <meta property="og:type" content="website" />
 
     <link rel="stylesheet" href="css/style.css" />
@@ -24,7 +24,7 @@
       <div class="container nav__inner">
         <a href="index.html" class="nav__logo">
           <span class="nav__logo-mark"></span>
-          [Camp Name]
+          SoWashCo Computer Camp
         </a>
 
         <button class="nav__toggle" aria-label="Toggle menu">
@@ -33,81 +33,53 @@
 
         <ul class="nav__links">
           <li><a class="nav__link" href="index.html">Home</a></li>
-          <li><a class="nav__link" href="team.html">Meet the Team</a></li>
-          <li><a class="nav__link" href="info.html">More Info</a></li>
-          <li>
-            <a class="btn btn--primary" href="info.html#register">Register</a>
-          </li>
+          <li><a class="nav__link" href="info.html">Information</a></li>
+          <li><a class="nav__link" href="team.html">About</a></li>
         </ul>
       </div>
     </header>
 
     <main class="team-showcase">
-      <div class="team-showcase__stage">
-        <!-- Slide 1 -->
-        <article class="team-slide is-active">
-          <div class="team-slide__photo">
+      <h1 class="team-showcase__heading">About</h1>
+
+      <div class="team-grid">
+        <article class="team-member">
+          <div class="team-member__photo">
             <!-- Replace with: <img src="images/person-one.jpg" alt="[Full Name]" /> -->
-            [ Photo ]
+            <img src="images/imageoftayo2.png" alt="Tayo Sennowo">
           </div>
-          <h1 class="team-slide__title">[Full Name — Role / Title]</h1>
-          <p class="team-slide__desc">
-            [Write a longer description about this person here. Include their
-            background, what they teach, why they enjoy working at the camp, and
-            anything else you want visitors to know. Replace this placeholder text.]
+          <h2 class="team-member__title">Tayo Sennowo - Co-founder, Software Lead</h2>
+          <p class="team-member__desc">
+            Tayo is a rising senior at East Ridge High School. He is proficient in the programming languages Java, JavaScript/HTML/CSS, Python, and C#. Besides computers, he is involved in swimming, National Honor Society, Student Cabinet, and soccer (to name a few), all while possibly being the biggest Pokémon fanatic in history.
           </p>
         </article>
 
-        <!-- Slide 2 -->
-        <article class="team-slide">
-          <div class="team-slide__photo">
-            [ Photo ]
+        <article class="team-member">
+          <div class="team-member__photo">
+            <!-- Replace with: <img src="images/person-two.jpg" alt="[Full Name]" /> -->
+            <img src="images/imageofaaron.png" alt="Aaron Doshi">
           </div>
-          <h1 class="team-slide__title">[Full Name — Role / Title]</h1>
-          <p class="team-slide__desc">
-            [Write a longer description about this person here. Include their
-            background, what they teach, why they enjoy working at the camp, and
-            anything else you want visitors to know. Replace this placeholder text.]
+          <h2 class="team-member__title">Aaron Doshi - Co-founder, Hardware Lead</h2>
+          <p class="team-member__desc">
+            Aaron is a rising senior at East Ridge High School planning to pursue a degree in engineering. He has built multiple computers on his own and is excited to share his vast knowledge. Besides computers, he is involved in robotics, debate, and skiing, and enjoys indulging in any new game releases on Steam.
           </p>
         </article>
-
-        <!-- Slide 3 -->
-        <article class="team-slide">
-          <div class="team-slide__photo">
-            [ Photo ]
-          </div>
-          <h1 class="team-slide__title">[Full Name — Role / Title]</h1>
-          <p class="team-slide__desc">
-            [Write a longer description about this person here. Include their
-            background, what they teach, why they enjoy working at the camp, and
-            anything else you want visitors to know. Replace this placeholder text.]
-          </p>
-        </article>
-
-        <!-- Slide 4 -->
-        <article class="team-slide">
-          <div class="team-slide__photo">
-            [ Photo ]
-          </div>
-          <h1 class="team-slide__title">[Full Name — Role / Title]</h1>
-          <p class="team-slide__desc">
-            [Write a longer description about this person here. Include their
-            background, what they teach, why they enjoy working at the camp, and
-            anything else you want visitors to know. Replace this placeholder text.]
-          </p>
-        </article>
-      </div>
-
-      <div class="team-showcase__controls">
-        <button class="team-showcase__btn" type="button" data-team-prev aria-label="Previous team member">
-          Previous
-        </button>
-        <span class="team-showcase__counter" data-team-counter>1 / 4</span>
-        <button class="team-showcase__btn" type="button" data-team-next aria-label="Next team member">
-          Next
-        </button>
       </div>
     </main>
+
+    <footer class="page-bars">
+      <div class="page-bar page-bar--contact">
+        <div class="container">
+          <strong>Contact:</strong>
+          tayo.sennowo@gmail.com · adoshi@apps.district833.org
+        </div>
+      </div>
+      <div class="page-bar page-bar--legal">
+        <div class="container">
+          &copy; <span class="js-year"></span> SoWashCo Computer Camp. Website by Tayo Sennowo. © Copyright 2026. All rights reserved.
+        </div>
+      </div>
+    </footer>
 
     <script src="js/main.js"></script>
   </body>

@@ -158,35 +158,12 @@
     });
   }
 
-  /* ---------- Team page showcase (no page scroll) ---------- */
-  function initTeamShowcase() {
-    var slides = document.querySelectorAll(".team-slide");
-    var prevBtn = document.querySelector("[data-team-prev]");
-    var nextBtn = document.querySelector("[data-team-next]");
-    var counter = document.querySelector("[data-team-counter]");
-    if (!slides.length || !prevBtn || !nextBtn || !counter) return;
-
-    var current = 0;
-
-    function showSlide(index) {
-      slides[current].classList.remove("is-active");
-      current = (index + slides.length) % slides.length;
-      slides[current].classList.add("is-active");
-      counter.textContent = current + 1 + " / " + slides.length;
-    }
-
-    prevBtn.addEventListener("click", function () {
-      showSlide(current - 1);
-    });
-
-    nextBtn.addEventListener("click", function () {
-      showSlide(current + 1);
-    });
-
-    document.addEventListener("keydown", function (e) {
-      if (!document.body.classList.contains("team-page")) return;
-      if (e.key === "ArrowLeft") showSlide(current - 1);
-      if (e.key === "ArrowRight") showSlide(current + 1);
+  /* ---------- Copyright year ---------- */
+  function initYear() {
+    var yearEls = document.querySelectorAll(".js-year");
+    var year = new Date().getFullYear();
+    yearEls.forEach(function (el) {
+      el.textContent = year;
     });
   }
 
@@ -197,7 +174,7 @@
     initMobileNav();
     initActiveLink();
     initFaq();
-    initTeamShowcase();
+    initYear();
   }
 
   if (document.readyState === "loading") {
